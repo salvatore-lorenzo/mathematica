@@ -6,7 +6,7 @@ BeginPackage["MyQubits`"];
 (*$PrePrint = If[SquareMatrixQ[#], MatrixForm[#], #]&;*)
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*HELPS*)
 
 
@@ -342,16 +342,16 @@ CirclePlus[a_,b__] := CirclePlus[a, CirclePlus[b]];
 Todm[v_]:=v\[CircleDot]Conj[v];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Commonly used matrices*)
 
 
-m={0,1};p={1,0};
+m={1,0};p={0,1};
 sx = {{0,1},{1,0}};
 sy = {{0,-I},{I,0}};
 sz = {{1,0},{0,-1}};
 id = {{1,0},{0,1}};
-sp =(sx + I sy)/2;sm = (sx - I sy)/2;
+sp =(sx - I sy)/2;sm = (sx + I sy)/2;
 wh = {{1,1},{1,-1}};
 cnot = {{1,0,0,0},{0,1,0,0},{0,0,0,1},{0,0,1,0}};
 Id[n_]:=IdentityMatrix[n];
@@ -422,7 +422,7 @@ TraceDistance[a_?SquareMatrixQ,b_?SquareMatrixQ]:=1/2*TraceNorm[a-b];
 
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Qubits Systems*)
 
 
@@ -431,7 +431,7 @@ NQubits[NN_]:=Module[{\[Sigma]0,\[Sigma]x,\[Sigma]y,\[Sigma]z,\[Sigma]p,\[Sigma]
 \[Sigma]x = SparseArray[{{0,1},{1,0}}];
 \[Sigma]y = SparseArray[{{0,-I},{I,0}}];
 \[Sigma]z =SparseArray[{{1,0},{0,-1}}];
-\[Sigma]p =(\[Sigma]x + I \[Sigma]y)/2;\[Sigma]m = (\[Sigma]x - I \[Sigma]y)/2;
+\[Sigma]p =(\[Sigma]x - I \[Sigma]y)/2;\[Sigma]m = (\[Sigma]x + I \[Sigma]y)/2;
 eye = Id[2^NN];
 Do[
 eyeL = Id[2^(i-1)];
