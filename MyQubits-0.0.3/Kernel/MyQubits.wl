@@ -818,7 +818,7 @@ MESolvet[\[ScriptCapitalL]_,\[Rho]0_,ti_,tf_]:=NDSolve[{D[\[Rho][t],t]==\[Script
 
 
 Vec2[x_] := Module[{GG = GEN[Length[x]]}, Tr[x . #] & /@ GG];
-UnVec2[x_] := Module[{GG = GG1[Sqrt[Length[x]]]}, Total[x GG]];
+UnVec2[x_] := Module[{GG = GEN[Sqrt[Length[x]]]}, Total[x GG]];
 
 
 (*vec(L\[Rho]L^\[ConjugateTranspose]-1/2{L\[ConjugateTranspose]L,\[Rho]}) = (L\[Conjugate]\[CircleTimes]L - 1/2\[DoubleStruckCapitalI] \[CircleTimes] L\[ConjugateTranspose]L - 1/2L\[ConjugateTranspose]L \[CircleTimes] \[DoubleStruckCapitalI]) vec(\[Rho])*)
